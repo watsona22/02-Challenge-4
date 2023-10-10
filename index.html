@@ -1,58 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="./assets/style.css" />
-    <title>Document</title>
+    <title>Dev Assessment</title>
 </head>
+
 <body>
-    <header>
-        <div class= "large-font">Knowledge Assessment</div>
-            <p>Answer the following multiple choice questions to test your knowledge of web developer concepts. You will have 60 seconds to complete the assessment and every wrong answer will result in 5 seconds lost. Once the timer is concluded note the score and enter your initials to record your progress. The test can be completed as many times as needed. Good luck!</p>
-        <button class="start" id="page_1">Start</button>
-      </header>
-      <main>
+    <header id="startScreen">
+        <div class="large-font">Knowledge Assessment</div>
+        <p>Answer the following multiple choice questions to test your knowledge of web developer concepts. You will
+            have 60 seconds to complete the assessment and every wrong answer will result in 5 seconds lost. Once the
+            timer is concluded note the score and enter your initials to record your progress. The test can be completed
+            as many times as needed. Good luck!</p>
+        <button class="start" id="startBtn">Start</button>
+    </header>
+    <main id="gameScreen" class="hidden">
+        <h3>Countdown: <span id="countdown">60</span></h3>
         <!--multiple choice format from stack overflow: https://stackoverflow.com/questions/34084048/creating-a-multiple-choice-option-in-javascript-->
-        <h4>The DOM allows us to use ______ to interact with HTML elements.</h4><br>
-            <form id="page_2" >
-                <input type="radio" name="choice" answer="Javascript"> Javascript
-                <input type="radio" name="choice" answer="CSS"> CSS
-                <input type="radio" name="choice" answer="HTML"> HTML
-                <input type="radio" name="choice" answer="All the above"> All of the above
-            </form>
-            <button onclick="submitAnswer()">Answer</button>
-        <h4>Which method adds a node to the end of the list of children of a specified parent node?</h4><br>
-            <form id="page_3" >
-                <input type="radio" name="choice" answer="includes()"> includes()
-                <input type="radio" name="choice" answer="appendChild()"> appendChild()
-                <input type="radio" name="choice" answer="append()"> append()
-                <input type="radio" name="choice" answer="reduce()"> reduce()
-            </form>
-            <button onclick="submitAnswer()">Answer</button>
-        <h4>Which methods stops a setInterval()?</h4><br>
-            <form id="page_4" >
-                <input type="radio" name="choice" answer="slice()"> slice()
-                <input type="radio" name="choice" answer="reverse()"> reverse()
-                <input type="radio" name="choice" answer="clearTimeout()"> clearTimeout()
-                <input type="radio" name="choice" answer="clearInterval()"> clearInterval()
-            </form>
-            <button onclick="submitAnswer()">Answer</button>
-        <h4>The ______ method is used to call a function whenever the specified event is delivered to the target.</h4><br>
-            <form id="page_5" >
-                <input type="radio" name="choice" answer="handleEvent()"> handleEvent()
-                <input type="radio" name="choice" answer="preventDefault()"> preventDefault()
-                <input type="radio" name="choice" answer="addEventListener()"> addEventListener()
-                <input type="radio" name="choice" answer="abort()"> abort()
-            </form>
-            <button onclick="submitAnswer()">Answer</button>
-      </main>
-      <section>
+        <!--https://stackoverflow.com/questions/65797893/how-to-make-quiz-questions-appear-one-at-a-time-after-clicking-next-in-javascrip-->
+        <div class="innerHTML">
+
+            <!-- <form id="Assessment">
+                <input type="radio" ques="ques" value="0">
+                <label for="0">${question.choice[0].title}</label><br>
+
+                <input type="radio" ques="ques" value="1">
+                <label for="1">${question.choice[1].title}</label><br>
+
+                <input type="radio" ques="ques" value="2">
+                <label for="2">${question.choice[2].title}</label><br>
+
+                <input type="radio" ques="ques" value="3">
+                <label for="3">${question.choice[3].title}</label><br>
+
+                <button id="submit">Answer</button>
+                <h4>Your score</h4>
+            </form> -->
+
+        </div>
+        <section id="answers">
+            <h4 id="question">${questions[i].ques}</h4>
+            <p id="display">
+            <div class="innerHTML">
+                <button class="one">${questions.choice[0].title}</button><br>
+                <button class="two">${questions.choice[1].title}</button><br>
+                <button class="three">${questions.choice[2].title}</button><br>
+                <button class="four">${questions.choice[3].title}</button><br>
+            </div>
+            </p>
+        </section>
+    </main>
+    <!-- <section>
         <div class="card results">
             <div class= "card timer">
                 <div class = "timer-text">
                 <div class="large-font timer-count"></div>
-              </div>
+              </div> -->
     <script src="script.js"></script>
 </body>
+
 </html>
