@@ -19,8 +19,8 @@ var fiveBtn = document.querySelector("#four");
 var questions = [
     {
         ques: ["The DOM allows us to use ______ to interact with HTML elements."],
-        choice: ["Javascript", "CSS", "HTML", "All the above"],
-        ans: ["Javascript"],
+        choice: ["Javascript", "CSS", "HTML", "All above"],
+        ans: ["All above"],
     },
     {
         ques: ["Which method adds a node to the end of the list of children of a specified parent node?"],
@@ -39,10 +39,10 @@ var questions = [
 
     },
 ];
-
+console.log(questions[0].choice[0]);
 let currentQuestion = 0;
 let submitted = false;
-var choice = "";
+//var choice = "";
 var score = 0;
 var answerWrong = '';
 var submitAnswer;
@@ -67,27 +67,39 @@ function startTimer() {
 
 function renderQuestion() {
     submitted = false;
-    //quiz.textContent = questions.ques;
 
-    quiz.innerHTML = questions.ques;
+    quiz.innerHTML = questions[0].ques[0];
     document.body.appendChild(quiz);
 
-    twoBtn.innerHTML = choice[0];
+    twoBtn.innerHTML = questions[0].choice[0];
     document.body.appendChild(twoBtn);
 
 
-    threeBtn.innerHTML = choice[1];
+    threeBtn.innerHTML = questions[0].choice[1];
     document.body.appendChild(threeBtn);
 
-    fourBtn.innerHTML = choice[2];
+    fourBtn.innerHTML = questions[0].choice[2];
     document.body.appendChild(fourBtn);
 
 
-    fiveBtn.innerHTML = choice[3];
+    fiveBtn.innerHTML = questions[0].choice[3];
     document.body.appendChild(fiveBtn);
 
     var currentQuestion = questions[currentQuestion];
+    var correctAns = questions.ans;
+    var userAns = questions.choice;
+
     const isLast = currentQuestion === questions.length;
+    if (correctAns === userAns) {
+        alert('correct!');
+    } else {
+        alert('incorrect');
+    }
+    document.getElementById("one").disabled = true;
+    document.getElementById("two").disabled = true;
+    document.getElementById("three").disabled = true;
+    document.getElementById("four").disabled = true;
+
     if (isLast) {
         //stop function and end the quiz (maybe call endQuiz function)
         return;
