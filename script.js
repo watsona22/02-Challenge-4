@@ -16,25 +16,29 @@ var fiveBtn = document.querySelector("#four");
 
 // createElement('button') to create a button and use appendChild() method to make the element appear on the html.
 
-const questions = [{
-    ques: 'The DOM allows us to use ______ to interact with HTML elements.',
-    ans: "Javascript",
-    choice: [{ title: "Javascript" }, { title: "CSS" }, { title: "HTML" }, { title: "All the above" }],
-}, {
-    ques: 'Which method adds a node to the end of the list of children of a specified parent node?',
-    ans: "appendChild()",
-    choice: [{ title: "includes()" }, { title: "appendChild()" }, { title: "append()" }, { title: "reduce()" }],
-}, {
-    ques: 'Which methods stops a setInterval()?',
-    ans: "clearInterval()",
-    choice: [{ title: "slice()" }, { title: "reverse()" }, { title: "clearTimeout()" }, { title: "clearInterval()" }],
+var questions = [
+    {
+        ques: ["The DOM allows us to use ______ to interact with HTML elements."],
+        choice: ["Javascript", "CSS", "HTML", "All the above"],
+        ans: ["Javascript"],
+    },
+    {
+        ques: ["Which method adds a node to the end of the list of children of a specified parent node?"],
+        choice: ["includes()", "appendChild()", "append()", "reduce()"],
+        ans: ["appendChild()"],
+    },
+    {
+        ques: ["Which method stops a setInterval()?"],
+        choice: ["slice()", "reverse()", "clearTimeout()", "clearInterval()"],
+        ans: ["clearInterval()"],
+    },
+    {
+        ques: ["The ______ method is used to call a function whenever the specified event is delivered to the target."],
+        ans: ["addEventListener()"],
+        choice: ["handleEvent()", "preventDefault()", "addEventListener()", "abort()"],
 
-}, {
-    ques: 'The ______ method is used to call a function whenever the specified event is delivered to the target.',
-    ans: "addEventListener()",
-    choice: [{ title: "handleEvent()" }, { title: "preventDefault()" }, { title: "addEventListener()" }, { title: "abort()" }],
-
-}];
+    },
+];
 
 let currentQuestion = 0;
 let submitted = false;
@@ -61,11 +65,9 @@ function startTimer() {
     }, 1000);
 }
 
-
-
 function renderQuestion() {
     submitted = false;
-    quiz.textContent = questions.ques;
+    //quiz.textContent = questions.ques;
 
     quiz.innerHTML = questions.ques;
     document.body.appendChild(quiz);
@@ -90,7 +92,7 @@ function renderQuestion() {
         //stop function and end the quiz (maybe call endQuiz function)
         return;
     };
-
+    outcome();
     endQuiz();
 
 };
@@ -102,23 +104,25 @@ function endQuiz() {
 };
 
 
-
 function outcome() {
     result = ""
     for (var i = 0, length = choice.length; i < length; i++) {
-        if (answer = choice[i].answer) {
-            score += answerWrong;
+        if (answers = choice[i].ans) {
             break;
         }
         return result();
     }
     if (choice.includes("Javascript", "appendChild()", "clearInterval()", "addEventListener()")) {
-        alert('correct!');
+        score++;
+        outcome();
     } else {
         alert('incorrect');
         answerWrong++;
         timer -= 5;
     };
+    answers.addEventListener("click", function () {
+    })
+
 };
 
 //multiple choice format from stack overflow: https://stackoverflow.com/questions/34084048/creating-a-multiple-choice-option-in-javascript
@@ -167,6 +171,6 @@ startBtn.addEventListener("click", function () {
 
 
 //add event listener to answers (in global scope)
-//create buttons and put them in answers div (on html page); see what the target is and check if it is a button. check to see if the text matches answers. if it doesn proceed to next question. call function each time the
+//create buttons and put them in answers div (on html page); see what the target is and check if it is a button. check to see if the text matches answers. if it doesn proceed to next question. call function each time the - Erik Hirsch
 
-// In the javascript, you can create elements using document.createElement('button') to create a button and use appendChild() method to make the element appear on the html. So you can dynamically create the elements from the javascript and append them to the html.  I find w3 schools is a good quick refesher on javascript tools https://www.w3schools.com/jsref/met_document_createelement.asp (edited)
+// In the javascript, you can create elements using document.createElement('button') to create a button and use appendChild() method to make the element appear on the html. So you can dynamically create the elements from the javascript and append them to the html.  I find w3 schools is a good quick refesher on javascript tools https://www.w3schools.com/jsref/met_document_createelement.asp (edited) - David Gaither

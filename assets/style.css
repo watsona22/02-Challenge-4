@@ -19,8 +19,8 @@ button {
   display: none;
 }
 
-#answers {
-  display: flex;
-  display: inline;
 
+button {
+
+  display: block;
 }
