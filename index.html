@@ -21,34 +21,14 @@
         <h3>Countdown: <span id="countdown">60</span></h3>
         <!--multiple choice format from stack overflow: https://stackoverflow.com/questions/34084048/creating-a-multiple-choice-option-in-javascript-->
         <!--https://stackoverflow.com/questions/65797893/how-to-make-quiz-questions-appear-one-at-a-time-after-clicking-next-in-javascrip-->
-        <div class="innerHTML">
-
-            <!-- <form id="Assessment">
-                <input type="radio" ques="ques" value="0">
-                <label for="0">${question.choice[0].title}</label><br>
-
-                <input type="radio" ques="ques" value="1">
-                <label for="1">${question.choice[1].title}</label><br>
-
-                <input type="radio" ques="ques" value="2">
-                <label for="2">${question.choice[2].title}</label><br>
-
-                <input type="radio" ques="ques" value="3">
-                <label for="3">${question.choice[3].title}</label><br>
-
-                <button id="submit">Answer</button>
-                <h4>Your score</h4>
-            </form> -->
-
-        </div>
         <section id="answers">
-            <h4 id="question">${questions[i].ques}</h4>
+            <h4 id="question"></h4>
             <p id="display">
             <div class="innerHTML">
-                <button class="one">${questions.choice[0].title}</button><br>
-                <button class="two">${questions.choice[1].title}</button><br>
-                <button class="three">${questions.choice[2].title}</button><br>
-                <button class="four">${questions.choice[3].title}</button><br>
+                <button id="one"></button><br>
+                <button id="two"></button><br>
+                <button id="three"></button><br>
+                <button id="four"></button><br>
             </div>
             </p>
         </section>

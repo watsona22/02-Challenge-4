@@ -5,12 +5,16 @@ var startScreen = document.querySelector("#startScreen");
 var gameScreen = document.querySelector("#gameScreen");
 var question = document.querySelector("#question");
 var answers = document.querySelector('#answers');
-var quiz = document.querySelector('innerHTML');
-var twoBtn = document.querySelector("#two");
-var threeBtn = document.querySelector("#three");
-var fourBtn = document.querySelector("#four");
-var fiveBtn = document.querySelector("#five");
-const quizEl = document.querySelector('innerHTML');
+var quiz = document.querySelector('.innerHTML');
+var appear = document.querySelector('#display');
+var twoBtn = document.querySelector("#one");
+var threeBtn = document.querySelector("#two");
+var fourBtn = document.querySelector("#three");
+var fiveBtn = document.querySelector("#four");
+//const quizEl = document.querySelector('innerHTML');
+
+
+// createElement('button') to create a button and use appendChild() method to make the element appear on the html.
 
 const questions = [{
     ques: 'The DOM allows us to use ______ to interact with HTML elements.',
@@ -31,11 +35,12 @@ const questions = [{
     choice: [{ title: "handleEvent()" }, { title: "preventDefault()" }, { title: "addEventListener()" }, { title: "abort()" }],
 
 }];
+
 let currentQuestion = 0;
 let submitted = false;
 var choice = "";
 var score = 0;
-var answerWrong;
+var answerWrong = '';
 var submitAnswer;
 var timer = 60;
 
@@ -49,77 +54,77 @@ function startTimer() {
             countEl.textContent = timer + ' second remaining';
             timer--;
         } else {
-            countEl.textContent = '' + ' time is up';
+            countEl.textContent = '' + ' Time is up';
             clearInterval(timePassed);
         }
 
     }, 1000);
-
-
-
-    // if (questions.choice.includes(questions.ans)) {
-    //     alert('correct!');
-    // } else {
-    //     alert('incorrect');
-    //     answerWrong++;
-    //     timer -= 5;
-    // };
 }
 
 
-var quiz = function renderQuestion() {
-    submitted = false;
-    const currentQuestion = questions[currentQuestion];
-    const isLast = currentQuestion === questions.length;
 
+function renderQuestion() {
+    submitted = false;
+    quiz.textContent = questions.ques;
+
+    quiz.innerHTML = questions.ques;
+    document.body.appendChild(quiz);
+
+    twoBtn.innerHTML = choice[0];
+    document.body.appendChild(twoBtn);
+
+
+    threeBtn.innerHTML = choice[1];
+    document.body.appendChild(threeBtn);
+
+    fourBtn.innerHTML = choice[2];
+    document.body.appendChild(fourBtn);
+
+
+    fiveBtn.innerHTML = choice[3];
+    document.body.appendChild(fiveBtn);
+
+    var currentQuestion = questions[currentQuestion];
+    const isLast = currentQuestion === questions.length;
     if (isLast) {
         //stop function and end the quiz (maybe call endQuiz function)
-    }
+        return;
+    };
 
-    question.textContent = question.ques
+    endQuiz();
+
+};
+
+function endQuiz() {
+    //print quiz result to card results class
+    //create prompt for user to enter initials
+    outcome();
+};
 
 
-}
 
-
-//to call object to display on multiple pages?
-// var querep = ques.map(function(val, index){
-//   return [val, ans[index]]
-// });
-
-//multiple choice format from stack overflow: https://stackoverflow.com/questions/34084048/creating-a-multiple-choice-option-in-javascript
 function outcome() {
     result = ""
     for (var i = 0, length = choice.length; i < length; i++) {
-        score += answerWrong;
-        //console.log(result)
+        if (answer = choice[i].answer) {
+            score += answerWrong;
+            break;
+        }
         return result();
     }
-}
+    if (choice.includes("Javascript", "appendChild()", "clearInterval()", "addEventListener()")) {
+        alert('correct!');
+    } else {
+        alert('incorrect');
+        answerWrong++;
+        timer -= 5;
+    };
+};
 
-//      if (answer == "" ) {
-//          alert('please select choice answer');
-//       } else if ( answer == "Scripting" ) {
-//          alert('Answer is correct !');
-//        } else {
-//          alert('Answer' + answerWrong + 'is wrong');
-
-//          answer += score
-//          return result(document.querySelector("#page_5"));
-//       }
-//const answerContainers = quizContainer.querySelectorAll(".answers");
-
+//multiple choice format from stack overflow: https://stackoverflow.com/questions/34084048/creating-a-multiple-choice-option-in-javascript
 var responses = [];
 
-//getScore();
-// var choice = document.getElementsByName('choice');
-//     console.log();
-//     var answer= "";
-//      for (var i = 0, length = choice.length; i < length; i++) {
-//          if (choice[i].checked) {
-//             answer = choice[i].answer;
-//            break;
-//           }}
+
 startBtn.addEventListener("click", function () {
     if (timer == 60) {
 
@@ -129,36 +134,39 @@ startBtn.addEventListener("click", function () {
         renderQuestion();
     }
 }, 1000);
-answers.addEventListener("click", function () {
-    if (twoBtn == questions.ans)
-        alert('correct!')
-    else ('')
-    alert('wrong answer!');
-})
 
-answers.addEventListener("click", function () {
-    if (threeBtn == questions.ans)
-        alert('correct!');
-    else ('')
-    alert('wrong answer!');
-})
+// answers.addEventListener("click", function () {
+//     if (twoBtn == questions.ans)
+//         alert('correct!')
+//     else ('')
+//     alert('wrong answer!');
+// })
 
-answers.addEventListener("click", function () {
-    if (fourBtn == questions.ans)
-        alert('correct!');
-    else ('')
-    alert('wrong answer!');
-})
+// answers.addEventListener("click", function () {
+//     if (threeBtn == questions.ans)
+//         alert('correct!');
+//     else ('')
+//     alert('wrong answer!');
+// })
 
-answers.addEventListener("click", function () {
-    if (fiveBtn == questions.ans)
-        alert('correct!');
-    else ('')
-    alert('wrong answer!');
-})
+// answers.addEventListener("click", function () {
+//     if (fourBtn == questions.ans)
+//         alert('correct!');
+//     else ('')
+//     alert('wrong answer!');
+// })
+
+// answers.addEventListener("click", function () {
+//     if (fiveBtn == questions.ans)
+//         alert('correct!');
+//     else ('')
+//     alert('wrong answer!');
+// })
 
 
 
 
 //add event listener to answers (in global scope)
-//create buttons and put them in answers div (on html page); see what the target is and check if it is a button. check to see if the text matches answers. if it doesn proceed to next question. call function each time the 
+//create buttons and put them in answers div (on html page); see what the target is and check if it is a button. check to see if the text matches answers. if it doesn proceed to next question. call function each time the
+
+// In the javascript, you can create elements using document.createElement('button') to create a button and use appendChild() method to make the element appear on the html. So you can dynamically create the elements from the javascript and append them to the html.  I find w3 schools is a good quick refesher on javascript tools https://www.w3schools.com/jsref/met_document_createelement.asp (edited)
