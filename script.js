@@ -39,10 +39,10 @@ var questions = [
         ans: ["addEventListener()"],
     },
 ];
-//console.log(questions[0].choice[0]);
+
 let currentQuestion = 0;
 let submitted = false;
-var submitAnswer;
+// var submitAnswer;
 //var choice = "";
 var score = 0;
 //var answerWrong = 0;
@@ -64,33 +64,10 @@ function startTimer() {
         }
 
     }, 1000);
+
 }
-
-
-// submitted = false;
-
-// quiz.innerHTML = questions[0].ques[0];
-// document.body.appendChild(quiz);
-
-// twoBtn.innerHTML = questions[0].choice[0];
-// document.body.appendChild(twoBtn);
-
-
-// threeBtn.innerHTML = questions[0].choice[1];
-// document.body.appendChild(threeBtn);
-
-// fourBtn.innerHTML = questions[0].choice[2];
-// document.body.appendChild(fourBtn);
-
-
-// fiveBtn.innerHTML = questions[0].choice[3];
-// document.body.appendChild(fiveBtn);
-
-// //var currentQuestion = questions[currentQuestion];
 function renderQuestion() {
     question.textContent = questions[currentQuestion].ques
-    console.log(questions[currentQuestion].ques);
-
     answers.innerHTML = '';
 
     for (let i = 0; i < questions[currentQuestion].choice.length; i++) {
@@ -103,12 +80,15 @@ function renderQuestion() {
         answers.appendChild(choiceBtn);
 
     }
-
 };
 
-function submitAnswers(selectAnswers) {
-    var selectAnswers = questions[currentQuestion].choice;
-    if (selectAnswers === questions[currentQuestion].ans) {
+function submitAnswers(selectedAnswer) {
+    var correctAnswer = questions[currentQuestion].ans;
+    console.log(questions[currentQuestion].ans);
+    var selectedAnswer;
+
+    console.log(selectedAnswer);
+    if (selectedAnswer == correctAnswer) {
         score++;
         alert('correct!');
 
@@ -118,80 +98,47 @@ function submitAnswers(selectAnswers) {
         alert('incorrect');
         timer -= 5;
 
-
     }
     currentQuestion++;
-    if (questions[currentQuestion] !== questions.length)
-        renderQuestion();
+    // if (questions[currentQuestion] !== questions.length)
+    renderQuestion();
     endQuiz();
     // submitAnswers();
-
-
+    console.log(score);
+    console.log(timer);
 };
 
 //compare currentQuestion compared to length of array)  
 //either renderQuiz or endQuiz
 //call submitAnswer function ()
-
-// function runningQuiz() {
-//     choices.addEventListener("click", function () {
-//         if (choices === questions[currentQuestion].ans); {
-//             score++;
-//             alert('correct!');
-//             currentQuestion++;
-
-//         } (choices !== questions[currentQuestion].ans)
-//         {
-//             score--;
-//             alert('incorrect');
-//             timer -= 5;
-//             currentQuestion++;
-//         }
-//         for (let i = 0; i < questions.choice; i++) {
-//             if (choice = choice[i].ans) {
-
-//             }
-//             return result();
-
-//         }
-//         currentQuestion++;
-//         outcome();
-//     });
-
-
-// function finalScore() {
-//     //choices = event.target;
-//     // document.getElementById("one").disabled = true;
-//     // document.getElementById("two").disabled = true;
-//     // document.getElementById("three").disabled = true;
-//     // document.getElementById("four").disabled = true;
-//     {
-//         var result = '';
-//         for (i = 0; i < questions[currentQuestion].choice.length; i++) {
-//             answers.innerHTML += score;
-//         }
-//         if (currentQuestion !== questions[currentQuestion].ans)
-//             score--;
-//         alert('incorrect');
-//         timer -= 5;
-
-//     }
-//     return result;
-
-// };
-
-
-;
-
 function endQuiz() {
     //print quiz result to card results class
     //create prompt for user to enter initials
-    // finalScore();
+
 };
 
+function writeScore() {
 
+    var results = document.getElementById('results');
+    // results.innerHTML = "Your score is: " + score;
+    results.textContent = score;
+    {
+        var result = '';
+        for (i = 0; i < questions[currentQuestion].choice.length; i++) {
+            answers.innerHTML += score;
+        }
+        if (time <= 0) {
+            endQuiz();
+            writeScore();
+        }
+
+    }
+    return result;
+    window.localStorage.getItem("answers", JSON.stringify(results));
+
+};
+// var resultScreen = document.querySelector("results");
 //multiple choice format from stack overflow: https://stackoverflow.com/questions/34084048/creating-a-multiple-choice-option-in-javascript
-var responses = [];
 
 
 startBtn.addEventListener("click", function () {
@@ -200,39 +147,10 @@ startBtn.addEventListener("click", function () {
         startTimer();
         startScreen.classList.add("hidden");
         gameScreen.classList.remove("hidden");
+        // resultScreen.classList.remove("hidden");
         renderQuestion();
     }
 }, 1000);
-
-// answers.addEventListener("click", function () {
-//     if (twoBtn == questions.ans)
-//         alert('correct!')
-//     else ('')
-//     alert('wrong answer!');
-// })
-
-// answers.addEventListener("click", function () {
-//     if (threeBtn == questions.ans)
-//         alert('correct!');
-//     else ('')
-//     alert('wrong answer!');
-// })
-
-// answers.addEventListener("click", function () {
-//     if (fourBtn == questions.ans)
-//         alert('correct!');
-//     else ('')
-//     alert('wrong answer!');
-// })
-
-// answers.addEventListener("click", function () {
-//     if (fiveBtn == questions.ans)
-//         alert('correct!');
-//     else ('')
-//     alert('wrong answer!');
-// })
-
-
 
 
 //add event listener to answers (in global scope)
