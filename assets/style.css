@@ -13,6 +13,8 @@ button {
   transition-property: background-color;
   transition-timing-function: linear;
   margin-top: 0.6em;
+  text-align: center;
+  font-size: medium;
 }
 
 .hidden {
