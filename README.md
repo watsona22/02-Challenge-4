@@ -23,8 +23,9 @@ All of the acceptance criteria were met and the site functions as expected.
 I learned the ins and outs of the DOM while creating dynamic pages. Web APIs present a unique challenge wherein aspects of the HTML can be called on to perform functions based on needs. Furthermore, I realized (after the fact) how important naming conventions can be. In many cases the variables declared were quite similar, so much as that they were hard to distinguish at times. Specificity is critical when utilizing the DOM structure. Getting the arrays to work in the way I needed them too posed a unique challenge - I found that reformatting made for easier reference later on - I will be sure to follow that model in the future. Finally, I again realize how vital notation and formatting code are to developing applications. I am still working to make this a natural implementation piece during the build process. 
 ## Usage
 
-The html, css, and js files can be used to view the company website with web accessibility considerations applied. A link to the mockup is accessible from the repository file list. 
+The html, css, and js files can be used to understand the dynamic code that supports the application. A link to the mockup is listed below, for your convenience. 
 ![Quiz Mockup](./assets/images/Quiz%20Mockup.png)
+https://watsona22.github.io/Web-Dev-Assessment/
 
 ## Credits
 
