@@ -1,4 +1,4 @@
-# 02-Challenge-4
+# Web-Dev-Assessment
 ## Description
 
 The purpose of this challenge was to deploy a web application and multiple choice quiz with interactive components. The project demonstrated dynamic HTML and CSS code, using Javascript. 
